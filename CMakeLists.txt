@@ -18,7 +18,7 @@ endif()
 find_package(Poco CONFIG REQUIRED Foundation Net Util)
 
 # Source files
-set(SOURCES src/main.cpp)
+set(SOURCES source/main.cpp)
 
 # Compiling target
 add_executable(${PROJECT_NAME} ${SOURCES})
