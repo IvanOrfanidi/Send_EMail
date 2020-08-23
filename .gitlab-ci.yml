@@ -1,0 +1,7 @@
+build:
+  script:
+  - ./compile.sh
+  after_script:
+  - cd /media/storage/gitlab/
+  - sudo rm -rf Send_EMail
+  - git clone http://192.168.109.15/root/Send_EMail.git
