@@ -1,6 +1,8 @@
 #!/bin/bash
-mkdir -p build
+
+rm -r build
+mkdir build
 cd build
 
-cmake -G "Unix Makefiles" ..
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .

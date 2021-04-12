@@ -12,7 +12,7 @@ namespace config {
 constexpr std::string_view SMTP_SERVER_NAME = "smtp-spb-00.obit.ru";
 }
 
-int main(int argc, char** argv)
+int main()
 {
     try {
         Poco::Net::MailMessage msg;
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 
         msg.setContent("Sending mail from C++ using POCO C++ Libraries");
 
-        Poco::Net::SMTPClientSession smtp(config::SMTP_SERVER_NAME.data()); // SMTP server name
+        Poco::Net::SMTPClientSession smtp(config::SMTP_SERVER_NAME.data());
         smtp.open();
         smtp.login();
         smtp.sendMessage(msg);

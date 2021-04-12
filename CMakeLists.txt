@@ -12,10 +12,25 @@ if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clan
     add_compile_options(
         -Werror
         -Wall
+        -Wextra
+        -Wpedantic
+        -Wcast-align
+        -Wcast-qual
+        -Wenum-compare
+        -Wfloat-equal
+        -Wnon-virtual-dtor
+        -Woverloaded-virtual
+        -Wredundant-decls
+        -Wsign-promo
+        -Wno-deprecated-declarations
     )
 endif()
 
-find_package(Poco CONFIG REQUIRED Foundation Net Util)
+find_package(Poco CONFIG REQUIRED
+    Foundation
+    Net
+    Util
+)
 
 # Source files
 set(SOURCES
@@ -31,4 +46,8 @@ endif(NOT CMAKE_BUILD_TYPE)
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 # Link target
-target_link_libraries(${PROJECT_NAME} PRIVATE Poco::Foundation Poco::Util Poco::Net)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Poco::Foundation
+    Poco::Util
+    Poco::Net
+)
