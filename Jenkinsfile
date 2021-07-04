@@ -6,7 +6,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "bash compile.sh"
+                sh """
+                    rm -rf build
+                    mkdir build
+                    cd build
+                    cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release ..
+                    cmake --build .
+                """
             }
         }
 
